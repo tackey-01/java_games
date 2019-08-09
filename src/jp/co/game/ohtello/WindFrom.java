@@ -17,6 +17,7 @@ public class WindFrom extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -27,7 +28,10 @@ public class WindFrom extends JFrame {
 				}
 			}
 		});
+
+
 	}
+
 
 	/**
 	 * Create the frame.
@@ -40,16 +44,20 @@ public class WindFrom extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-
+		addMouseListener(new MouseControl());
 
 		JPanel text_panel = new JPanel();
-		JLabel text_label = new JLabel();
-		text_label.setText("OhelloGame");
-		text_panel.add(text_label);
+		JLabel img_label = new JLabel();
+		DrawCanvas dc = new DrawCanvas();
+
+		img_label.setText("OhelloGame");
+		text_panel.add(dc);
 
 		Container contentPane = getContentPane();
-		System.out.println(contentPane.getColorModel());
-	    contentPane.add(text_panel, BorderLayout.LINE_START);
+		//System.out.println(contentPane.getColorModel());
+	    //contentPane.add(text_panel, BorderLayout.LINE_START);
+	    contentPane.add(dc);
+	    setVisible(true);
 
 	}
 
